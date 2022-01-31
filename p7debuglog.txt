@@ -1,7 +1,5 @@
-
-Program received signal SIGHUP, Hangup.
  
- gcc -g p6original.c
+ gcc -g p7original.c
  gdb a.out
 GNU gdb (Ubuntu 8.1.1-0ubuntu1) 8.1.1
 Copyright (C) 2018 Free Software Foundation, Inc.
@@ -19,45 +17,50 @@ For help, type "help".
 Type "apropos word" to search for commands related to "word"...
 Reading symbols from a.out...done.
 (gdb) b main
-Breakpoint 1 at 0x952: file p6original.c, line 58.
+Breakpoint 1 at 0x828: file p7original.c, line 31.
 (gdb) r
 Starting program: /home/runner/pps-IA1-practice/a.out 
 warning: Error disabling address space randomization: Operation not permitted
 
-Breakpoint 1, main () at p6original.c:58
-58  {
-(gdb) n
-61      input_two_string(a,b);
+Breakpoint 1, main () at p7original.c:31
+31    c1=input();
 (gdb) s
-input_two_string (a=0x7ffc61616a10 "\001", 
-    b=0x7ffc61616a30 "\300\t\240ߒU") at p6original.c:4
-4       printf("enter any word:\n");
+input () at p7original.c:9
+9   {
 (gdb) n
-enter any word:
-5       scanf("%s",a);
+11    printf("enter the real part:");
 (gdb) n
-n
-6       printf("enter any word:\n");
+12    scanf("%f",&c.real);
 (gdb) n
-enter any word:
-7       scanf("%s",b);
+enter the real part:2
+13    printf("enter the imaginary part:");
 (gdb) n
-s
-8   }
+14    scanf("%f",&c.imaginary);
 (gdb) n
-main () at p6original.c:62
-62      ans=cmp(a,b);
+enter the imaginary part:3i
+15    return c;
 (gdb) n
-63      output(a,b,ans);
+16  }
+(gdb) n
+main () at p7original.c:32
+32    c2=input();
 (gdb) s
-output (a=0x7ffc61616a10 "n", b=0x7ffc61616a30 "s", ans=1)
-    at p6original.c:44
-44      if(ans == -1)
+input () at p7original.c:9
+9   {
 (gdb) n
-48      else if(ans == 1)
+11    printf("enter the real part:");
 (gdb) n
-50          printf("%s is greater than %s\n",b,a);
+12    scanf("%f",&c.real);
 (gdb) n
-s is greater than n
-56  }
-(gdb) 
+13    printf("enter the imaginary part:");
+(gdb) n
+14    scanf("%f",&c.imaginary);
+(gdb) n
+enter the real part:enter the imaginary part:4 5i
+15    return c;
+(gdb) n
+16  }
+(gdb) c
+Continuing.
+the sum is 4.0+7.0i [Inferior 1 (process 428) exited normally]
+(gdb)  
